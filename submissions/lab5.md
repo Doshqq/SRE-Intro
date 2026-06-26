@@ -133,3 +133,31 @@ a34dc9e ci: update image tags to 45039ded8a39506856ad8693a5adb2f27eae3677
 
 ### 3. ArgoCD Syncing Auto-Updated Tag
 ArgoCD successfully synced the auto-updated image tags without manual intervention. The automated sync policy detected the commit from GitHub Actions and applied the new image tags to the cluster automatically.
+
+```
+Name:               argocd/quickticket
+Project:            default
+Server:             https://kubernetes.default.svc
+Namespace:          default
+URL:                https://localhost:8443/applications/quickticket
+Source:
+- Repo:             https://github.com/Doshqq/SRE-Intro.git
+  Target:           
+  Path:             k8s
+SyncWindow:         Sync Allowed
+Sync Policy:        Automated
+Sync Status:        Synced to  (a34dc9e)
+Health Status:      Healthy
+
+GROUP  KIND        NAMESPACE  NAME      STATUS  HEALTH   HOOK  MESSAGE
+       Service     default    gateway   Synced  Healthy        service/gateway unchanged
+       Service     default    events    Synced  Healthy        service/events unchanged
+       Service     default    payments  Synced  Healthy        service/payments unchanged
+       Service     default    postgres  Synced  Healthy        service/postgres unchanged
+       Service     default    redis     Synced  Healthy        service/redis unchanged
+apps   Deployment  default    payments   Synced  Healthy        deployment.apps/payments configured
+apps   Deployment  default    events     Synced  Healthy        deployment.apps/events configured
+apps   Deployment  default    postgres   Synced  Healthy        deployment.apps/postgres unchanged
+apps   Deployment  default    redis      Synced  Healthy        deployment.apps/redis unchanged
+apps   Deployment  default    gateway    Synced  Healthy        deployment.apps/gateway configured
+```
