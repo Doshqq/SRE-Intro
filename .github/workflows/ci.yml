@@ -23,18 +23,21 @@ jobs:
 
       - name: Build and push gateway image
         run: |
-          docker build -t ghcr.io/${{ github.actor }}/quickticket-gateway:${{ github.sha }} ./app/gateway
-          docker push ghcr.io/${{ github.actor }}/quickticket-gateway:${{ github.sha }}
+          ACTOR_LOWER=$(echo "${{ github.actor }}" | tr '[:upper:]' '[:lower:]')
+          docker build -t ghcr.io/${ACTOR_LOWER}/quickticket-gateway:${{ github.sha }} ./app/gateway
+          docker push ghcr.io/${ACTOR_LOWER}/quickticket-gateway:${{ github.sha }}
 
       - name: Build and push events image
         run: |
-          docker build -t ghcr.io/${{ github.actor }}/quickticket-events:${{ github.sha }} ./app/events
-          docker push ghcr.io/${{ github.actor }}/quickticket-events:${{ github.sha }}
+          ACTOR_LOWER=$(echo "${{ github.actor }}" | tr '[:upper:]' '[:lower:]')
+          docker build -t ghcr.io/${ACTOR_LOWER}/quickticket-events:${{ github.sha }} ./app/events
+          docker push ghcr.io/${ACTOR_LOWER}/quickticket-events:${{ github.sha }}
 
       - name: Build and push payments image
         run: |
-          docker build -t ghcr.io/${{ github.actor }}/quickticket-payments:${{ github.sha }} ./app/payments
-          docker push ghcr.io/${{ github.actor }}/quickticket-payments:${{ github.sha }}
+          ACTOR_LOWER=$(echo "${{ github.actor }}" | tr '[:upper:]' '[:lower:]')
+          docker build -t ghcr.io/${ACTOR_LOWER}/quickticket-payments:${{ github.sha }} ./app/payments
+          docker push ghcr.io/${ACTOR_LOWER}/quickticket-payments:${{ github.sha }}
 
       - name: Update image tags in manifests
         run: |
