@@ -5,11 +5,17 @@
 ### 1. GitHub Actions Run (Green Check)
 Link to successful CI run: https://github.com/Doshqq/SRE-Intro/actions/runs/28209614694
 
+Screenshot:
+![img.png](lab5-pic.png)
+
 ### 2. Container Images Pushed to ghcr.io
 The CI pipeline successfully built and pushed all three container images:
-- ghcr.io/doshqq/quickticket-gateway:0ba009f93d10b859884bb6a07768fc569029542d
-- ghcr.io/doshqq/quickticket-events:0ba009f93d10b859884bb6a07768fc569029542d
-- ghcr.io/doshqq/quickticket-payments:0ba009f93d10b859884bb6a07768fc569029542d
+- ghcr.io/doshqq/quickticket-gateway:009de9796f60c0744d6f6cda03c650a4ad01b04d
+- ghcr.io/doshqq/quickticket-events:f7c200d2f47174e5e63a6ed05d5cccaf7094c7c4
+- ghcr.io/doshqq/quickticket-payments:f7c200d2f47174e5e63a6ed05d5cccaf7094c7c4
+
+Screenshot:
+![img.png](lab5-pic2.png)
 
 ### 3. ArgoCD Application Status
 ```

@@ -54,4 +54,4 @@ jobs:
           git config user.email "github-actions@github.com"
           git add -f k8s/
           git diff --cached --quiet || git commit -m "ci: update image tags to ${{ github.sha }}"
-          git push
+          git push 
