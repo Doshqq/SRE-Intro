@@ -39,9 +39,10 @@ jobs:
       - name: Update image tags in manifests
         run: |
           SHA=${{ github.sha }}
-          sed -i "s|image: ghcr.io/.*/quickticket-gateway:.*|image: ghcr.io/${{ github.actor }}/quickticket-gateway:${SHA}|" k8s/gateway.yaml
-          sed -i "s|image: ghcr.io/.*/quickticket-events:.*|image: ghcr.io/${{ github.actor }}/quickticket-events:${SHA}|" k8s/events.yaml
-          sed -i "s|image: ghcr.io/.*/quickticket-payments:.*|image: ghcr.io/${{ github.actor }}/quickticket-payments:${SHA}|" k8s/payments.yaml
+          ACTOR_LOWER=$(echo "${{ github.actor }}" | tr '[:upper:]' '[:lower:]')
+          sed -i "s|image: ghcr.io/.*/quickticket-gateway:.*|image: ghcr.io/${ACTOR_LOWER}/quickticket-gateway:${SHA}|" k8s/gateway.yaml
+          sed -i "s|image: ghcr.io/.*/quickticket-events:.*|image: ghcr.io/${ACTOR_LOWER}/quickticket-events:${SHA}|" k8s/events.yaml
+          sed -i "s|image: ghcr.io/.*/quickticket-payments:.*|image: ghcr.io/${ACTOR_LOWER}/quickticket-payments:${SHA}|" k8s/payments.yaml
 
       - name: Commit and push manifest update
         run: |
