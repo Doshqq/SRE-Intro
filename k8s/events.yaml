@@ -18,7 +18,7 @@ spec:
         - name: ghcr-secret
       containers:
         - name: events
-          image: ghcr.io/doshqq/quickticket-events:3a4935e7795d1c97f4aa5bfa0ee34ee94d3c3a4d
+          image: ghcr.io/doshqq/quickticket-events:a320ab964725085a83d223307018361d3c3b2e67
           imagePullPolicy: Always
           env:
             - name: DB_HOST
